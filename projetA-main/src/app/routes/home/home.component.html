@@ -1,0 +1,54 @@
+<div class="home-page">
+
+    <div class="content">
+      
+      <div class="main-content">
+        <div class="card">
+          <div class="card-content">
+            <div class="text-content">
+              <h1>Bienvenue Sur le site d'amennet</h1>
+              <p>Le premier site d'internet banking en Tunisie.</p>
+              <p>Pour vous permettre de réaliser et de gérer au mieux vos opérations bancaires, nous vous proposons un outil de pointe.</p>
+              <p> <span #typingText></span> </p>
+              <button mat-button routerLink="/login" class="nav-button btn-admin">Admin</button>
+              <button mat-button routerLink="/login" class="nav-button btn-client">Client</button>
+            </div>
+            <div class="image-content">
+              <img src="assets/amenback.png" alt="Amen Bank" class="logo">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="footer-header">
+        <h2>Contactez-Nous</h2>
+      </div>
+      <div class="footer-body">
+        <div class="contact-card">
+          <div class="contact-info">
+            <p><i class="fas fa-phone"></i> 71 833 517</p>
+            <p><i class="fas fa-phone"></i> 71 148 000</p>
+            <p><i class="far fa-envelope"></i> <a href="mailto:amenbank&#64;amenbank.com.tn">amenbank&#64;amenbank.com.tn</a></p>
+            <p><i class="fas fa-map-marker-alt"></i> AMEN BANK - Av. Mohamed V 1002 Tunis</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <mat-sidenav-container class="sidenav-container">
+      <mat-sidenav mode="side" opened class="sidenav">
+        <mat-nav-list>
+          <a mat-list-item [routerLink]="['/login']">
+            <mat-icon>account_circle</mat-icon>
+            <h3 mat-line>Compte</h3>
+          </a>
+            <mat-icon>monetization_on</mat-icon>
+            <h3 mat-line>Cours de Change</h3>  
+        </mat-nav-list>
+      </mat-sidenav>
+      <mat-sidenav-content class="content">
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  

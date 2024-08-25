@@ -1,0 +1,110 @@
+/* Centrage de la page */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5f5f5; /* Couleur de fond douce pour toute la page */
+}
+
+/* Carte d'inscription */
+.auth-card {
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère pour un effet de profondeur */
+  background-color: #ffffff; /* Fond blanc de la carte */
+  border-radius: 10px;
+}
+
+/* Titre */
+.auth-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333; /* Couleur du titre */
+  margin-bottom: 20px;
+}
+
+/* Champs de formulaire */
+.form-group {
+  margin-bottom: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+/* Boutons */
+button[type="submit"],
+button[type="button"] {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #3f51b5;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover,
+button[type="button"]:hover {
+  background-color: #303f9f;
+}
+
+/* Liens */
+a {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  color: #3f51b5;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Messages de succès */
+.success-message-panel {
+  display: flex;
+  align-items: center;
+  background-color: #e8f5e9;
+  border-left: 5px solid #4caf50;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.success-icon {
+  font-size: 24px;
+  color: #4caf50;
+  margin-right: 10px;
+}
+
+.success-message {
+  font-size: 16px;
+  color: #2e7d32;
+  line-height: 1.4;
+}
+
+/* Code QR pour l'authentification à deux facteurs */
+.qr-code {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.qr-code img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Désactiver le bouton de vérification si le code OTP est invalide */
+.button-disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}

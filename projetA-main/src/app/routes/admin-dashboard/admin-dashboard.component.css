@@ -1,0 +1,125 @@
+/* Styles globaux */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Conteneur principal */
+  .container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Titre principal */
+  h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2em;
+    color: #333333;
+  }
+  
+  /* Cartes */
+  .card {
+    margin-bottom: 20px;
+    background-color: #e8f5e9; /* Fond de carte vert clair */
+    color: #333333; /* Texte en noir */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  /* Titre des cartes */
+  .mat-card-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #27ae60; /* Texte vert pour le titre */
+    margin-bottom: 20px;
+  }
+  
+  /* Contenu des cartes */
+  .mat-card-content {
+    padding: 0;
+  }
+  
+  /* Formulaires */
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Champs du formulaire */
+  .mat-form-field {
+    margin-bottom: 15px; /* Espacement entre les champs */
+  }
+  
+  .mat-form-field label {
+    color: #555555; /* Couleur du label dans les champs */
+  }
+  
+  /* Boutons */
+  button {
+    margin-top: 20px;
+  }
+  
+  /* Boutons spécifiques */
+  button.mat-raised-button {
+    background-color: #27ae60; /* Vert foncé pour les boutons */
+    color: #ffffff; /* Texte blanc pour le contraste */
+  }
+  
+  button.mat-raised-button:hover {
+    background-color: #2ecc71; /* Vert plus clair au survol */
+  }
+  
+  /* Tableaux */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  /* En-tête de table */
+  th.mat-header-cell {
+    background-color: #16a085; /* Vert foncé pour l'en-tête de table */
+    color: #ffffff; /* Texte blanc pour le contraste */
+    padding: 10px;
+    text-align: left;
+    border-bottom: 2px solid #1e8e73; /* Bordure verte sous l'en-tête */
+  }
+  
+  /* Cellules de table */
+  td.mat-cell {
+    padding: 10px;
+    border-bottom: 1px solid #1e8e73; /* Bordure verte pour les cellules */
+  }
+  
+  /* Lignes de la table */
+  tr.mat-header-row {
+    background-color: #1e8e73; /* Vert foncé pour les lignes d'en-tête */
+  }
+  
+  tr.mat-row:hover {
+    background-color: #1e8e73; /* Vert foncé pour les lignes au survol */
+    color: #ffffff; /* Texte blanc pour le contraste */
+  }
+  
+  /* Boutons dans les cellules */
+  button.mat-button {
+    margin-right: 10px;
+    color: #ffffff; /* Texte blanc pour les boutons dans les cellules */
+  }
+  
+  button.mat-button.color-warn {
+    color: #e74c3c; /* Rouge pour le bouton de suppression */
+  }
+  

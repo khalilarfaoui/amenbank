@@ -1,0 +1,49 @@
+<div class="transfer-form">
+  <h3>Virement compte à compte</h3>
+  <form [formGroup]="virementForm" (ngSubmit)="onSubmitTransfer()">
+    <div class="form-group">
+      <label for="compteSourceId">Compte à débiter:</label>
+      <select formControlName="compteSourceId" id="compteSourceId">
+        <option *ngFor="let account of accounts" [value]="account.number">
+          {{ account.number }} {{ account.label }}
+        </option>
+
+        <option>Sélectionner le compte à créditer</option>
+        <option *ngFor="let i of comptes" [value]="i.id">
+          {{ i.numeroCompte }} ({{ i.compteEnum }})
+        </option>
+      </select>
+    </div>
+
+    <div>
+      <label for="currency">Devise:</label>
+      <select id="currency" formControlName="devise">
+        <option *ngFor="let currency of currencies" [value]="currency">
+          {{ currency }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="toAccount">Compte à créditer:</label>
+      <select formControlName="compteDestId" id="toAccount">
+        <option>Sélectionner le compte à créditer</option>
+        <option *ngFor="let i of comptes" [value]="i.id">
+          {{ i.numeroCompte }} ({{ i.compteEnum }})
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="amount">Montant:</label>
+      <input type="text" formControlName="montant" id="amount" />
+    </div>
+
+    <div class="form-group">
+      <label for="motif">Motif paiement:</label>
+      <textarea formControlName="motif" id="motif"></textarea>
+    </div>
+
+    <button type="submit" class="btn-submit">Continuer</button>
+  </form>
+</div>

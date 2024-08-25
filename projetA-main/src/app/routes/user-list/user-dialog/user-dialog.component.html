@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>{{data.id ? 'Edit User' : 'Add User'}}</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill" style="width: 100%;">
+    <mat-label>First Name</mat-label>
+    <input matInput [(ngModel)]="data.firstname">
+  </mat-form-field>
+  <mat-form-field appearance="fill" style="width: 100%;">
+    <mat-label>Last Name</mat-label>
+    <input matInput [(ngModel)]="data.lastname">
+  </mat-form-field>
+  <mat-form-field appearance="fill" style="width: 100%;">
+    <mat-label>Email</mat-label>
+    <input matInput [(ngModel)]="data.email">
+  </mat-form-field>
+  <mat-form-field appearance="fill" style="width: 100%;">
+    <mat-label>Password</mat-label>
+    <input matInput [(ngModel)]="data.password" type="password">
+  </mat-form-field>
+  <mat-form-field appearance="fill" style="width: 100%;">
+    <mat-label>Role</mat-label>
+    <mat-select [(ngModel)]="data.role">
+      <mat-option value="USER">User</mat-option>
+      <mat-option value="ADMIN">Admin</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button color="primary" [mat-dialog-close]="data">Save</button>
+</div>

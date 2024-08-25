@@ -1,0 +1,50 @@
+.navbar {
+    background-color: #4CAF50;
+    display: flex;
+    align-items: center;
+    padding: 8px 10px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .navbar:hover {
+    background-color: #66BB6A;
+  }
+  
+  .logo {
+    height: 48px;
+    margin-right: 16px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .navbar:hover .logo {
+    transform: scale(1.1);
+  }
+  
+  .title {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: white;
+    margin-right: auto;
+  }
+  
+  .spacer {
+    flex: 1 2 auto;
+  }
+  
+  .nav-button {
+    color: white;
+    transition: color 0.3s ease-in-out;
+    margin: 0 8px;
+    background-color: #4CAF50;
+    border-radius: 4px;
+  }
+  
+  .nav-button:hover {
+    background-color: #66BB6A;
+    color: #C8E6C9;
+  }
+  
+  .mat-button-ripple {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  

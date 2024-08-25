@@ -1,0 +1,50 @@
+<div class="account-overview">
+  <h2>Vue d'ensemble des comptes</h2>
+  <h4>Vos comptes d'entreprise</h4>
+  
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="accountNumber">
+      <th mat-header-cell *matHeaderCellDef> N° de compte </th>
+      <td mat-cell *matCellDef="let element"> {{element.accountNumber}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="accountLabel">
+      <th mat-header-cell *matHeaderCellDef> Libellé compte </th>
+      <td mat-cell *matCellDef="let element"> {{element.accountLabel}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> Date solde </th>
+      <td mat-cell *matCellDef="let element"> {{element.date | date: 'dd/MM/yyyy'}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="currency">
+      <th mat-header-cell *matHeaderCellDef> Devise </th>
+      <td mat-cell *matCellDef="let element"> {{element.currency}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="balance">
+      <th mat-header-cell *matHeaderCellDef> Solde actuel </th>
+      <td mat-cell *matCellDef="let element"> {{element.balance | currency:'TND':'symbol':'1.2-2'}} </td>
+    </ng-container>
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  <div class="total-balance">
+    Total Solde TND : {{totalBalance | currency:'TND':'symbol':'1.2-2'}}
+  </div>
+  
+  <div class="export-link">
+    <a href="#">Exporter vers CFONB</a>
+  </div>
+  
+
+  <!-- New button with arrow icon -->
+  <button mat-raised-button color="primary" class="btn-with-arrow" [routerLink]="['/virement']">
+    Virement de compte à compte
+  </button>
+  
+
+  

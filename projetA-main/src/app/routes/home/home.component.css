@@ -1,0 +1,233 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .home-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  .sidebar {
+    width: 250px;
+    background-color: rgba(238, 245, 239, 0.8); /* Couleur de fond transparente */
+    color: #ecf0f1;
+    display: fixed;
+    flex-direction: column;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+    padding-top: 20px;
+    position: fixed;
+    top: 70px;
+    bottom: 0;
+    height: calc(100vh - 70px); /* Hauteur totale moins la hauteur de la barre de navigation */
+  }
+  .menu-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #39b543;
+    color: #ecf0f1;
+    font-size: 1.25rem;
+    font-weight: bold;
+    border-bottom: 1px solid #e7e7e7;
+  }
+  
+  .menu-header i {
+    margin-right: 10px;
+  }
+  
+  .sidebar-menu {
+    flex: 1;
+    padding: 20px 0;
+  }
+  
+  .sidebar-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar-menu li {
+    width: 100%;
+  }
+  
+  .sidebar-menu a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #29a17b;
+    padding: 15px 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .sidebar-menu a i {
+    margin-right: 10px;
+  }
+  
+  .sidebar-menu a:hover {
+    background-color: #bacbdd;
+    color: #000000;
+  }
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  .typing-text-blink {
+    animation: blink 1s step-end infinite;
+  }
+  
+  
+  /* Card Styles */
+  .card {
+    background: #e8f5e9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px #bacbdd(177, 210, 247, 0.1);
+    padding: 40px;
+    max-width: 800px;
+    width: 150%;
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .card-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .text-content {
+    flex: 1;
+    padding-right: 20px;
+  }
+  
+  .text-content h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .text-content p {
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .text-content button {
+    background-color: #63bc67;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .text-content button:hover {
+    background-color: #5aa45f;
+  }
+  
+  .btn-admin {
+    background-color: #4CAF50;
+  }
+  
+  .btn-admin:hover {
+    background-color: #45A049;
+  }
+  
+  .btn-client {
+    background-color: #2196F3;
+  }
+  
+  .btn-client:hover {
+    background-color: #0b7dda;
+  }
+  
+  /* Image Styles */
+  .image-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  .footer {
+    background-image: url('/assets/Amen-Bank-Siege.jpg');
+    background-size: cover; /* Assure que l'image couvre tout le footer */
+    background-position: center; /* Centre l'image */
+    background-repeat: no-repeat; /* Évite la répétition de l'image */
+    height: 200px; /* Ajustez selon vos besoins */
+    color: white; /* Ajustez le texte si nécessaire */
+    text-align: center; /* Centrez le texte */
+    padding: 20px; /* Ajustez selon vos besoins */
+  }
+  
+  .footer-header {
+    background-color: #63bc67;
+    color: #ffffff;
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .footer-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  
+  .footer-body {
+    padding: 5px 0;
+    background: url('https://www.investir-en-tunisie.net/fr/wp-content/uploads/2017/03/Siege-Amen-Bank_Investir-En-Tunisie.jpg') no-repeat center bottom;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .contact-card {
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    border-radius: 8px;
+    padding: 10px;
+    max-width: 200px;
+    height: 20%;
+    margin: 0 auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: #0b7dda;
+  }
+  
+  .contact-info {
+    margin-bottom: 5px;
+  }
+  
+  .contact-info p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .contact-info p i {
+    margin-right: 10px;
+  
+  }
+  

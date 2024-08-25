@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>{{ compte.id ? 'Edit Compte' : 'Create Compte' }}</h2>
+<mat-dialog-content>
+  <mat-form-field style="width: 100%;">
+    <mat-label>Numéro Compte</mat-label>
+    <input matInput [(ngModel)]="compte.numeroCompte" required>
+  </mat-form-field>
+  <mat-form-field style="width: 100%;">
+    <mat-label>Solde</mat-label>
+    <input matInput type="number" [(ngModel)]="compte.solde" required>
+  </mat-form-field>
+  <mat-form-field style="width: 100%;">
+    <mat-label>Devise</mat-label>
+    <input matInput [(ngModel)]="compte.devise" required>
+  </mat-form-field>
+
+  <mat-form-field style="width: 100%;" appearance="fill">
+    <mat-label>Type de Compte</mat-label>
+    <mat-select [(ngModel)]="compte.compteEnum" required>
+      <mat-option *ngFor="let type of compteTypes" [value]="type">{{ type }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button color="primary" (click)="onSave()">Save</button>
+</mat-dialog-actions>

@@ -1,0 +1,64 @@
+<div class="container mt-5" style="padding: 50px;">
+  <h2>Liste des Virements</h2>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Search</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search virements">
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: rgb(66, 188, 66); color: white;"></th>
+      <td mat-cell *matCellDef="let virement; let i = index">{{ i + 1 }}</td>
+    </ng-container>
+
+    <!-- Compte Source Column -->
+    <ng-container matColumnDef="compteSource">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: rgb(66, 188, 66); color: white;">Compte Source</th>
+      <td mat-cell *matCellDef="let virement">{{ virement.compteSource.numeroCompte }}</td>
+    </ng-container>
+
+    <!-- Compte Destination Column -->
+    <ng-container matColumnDef="compteDest">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: rgb(66, 188, 66); color: white;">Compte Destination</th>
+      <td mat-cell *matCellDef="let virement">{{ virement.compteDest.numeroCompte }}</td>
+    </ng-container>
+
+    <!-- Montant Column -->
+    <ng-container matColumnDef="montant">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: rgb(66, 188, 66); color: white;">Montant</th>
+      <td mat-cell *matCellDef="let virement">{{ virement.montant | currency:virement.devise }}</td>
+    </ng-container>
+
+    <!-- Date Column -->
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: rgb(66, 188, 66); color: white;">Date</th>
+      <td mat-cell *matCellDef="let virement">{{ virement.date | date:'short' }}</td>
+    </ng-container>
+
+    <!-- Statut Column -->
+    <ng-container matColumnDef="statut">
+      <th mat-header-cell *matHeaderCellDef mat-sort-heade style="background-color: rgb(66, 188, 66); color: white;"r>Statut</th>
+      <td mat-cell *matCellDef="let virement">{{ virement.statut }}</td>
+    </ng-container>
+
+    <!-- Devise Column -->
+    <ng-container matColumnDef="devise">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: rgb(66, 188, 66); color: white;">Devise</th>
+      <td mat-cell *matCellDef="let virement">{{ virement.devise }}</td>
+    </ng-container>
+
+    <!-- Motif Column -->
+    <ng-container matColumnDef="motif">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: rgb(66, 188, 66); color: white;">Motif</th>
+      <td mat-cell *matCellDef="let virement">{{ virement.motif }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
+</div>

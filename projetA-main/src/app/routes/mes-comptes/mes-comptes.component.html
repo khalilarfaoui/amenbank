@@ -1,0 +1,97 @@
+<div class="container" style="padding: 50px">
+  <div style="display: flex; justify-content: space-between">
+    <h2>Comptes List</h2>
+    <button
+      mat-raised-button
+      color="primary"
+      style="background-color: rgb(66, 188, 66); color: white"
+      (click)="openDialog()"
+    >
+      Create Compte
+    </button>
+  </div>
+
+  <table mat-table [dataSource]="comptes" class="mat-elevation-z8">
+    <ng-container matColumnDef="numeroCompte">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        style="background-color: rgb(66, 188, 66); color: white"
+      >
+        Numéro Compte
+      </th>
+      <td mat-cell *matCellDef="let compte">{{ compte.numeroCompte }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="solde">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        style="background-color: rgb(66, 188, 66); color: white"
+      >
+        Solde
+      </th>
+      <td mat-cell *matCellDef="let compte">
+        {{ compte.solde }}
+        <span class="badge badge-soft-primary mb-0">{{ compte.devise }} </span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="devise">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        style="background-color: rgb(66, 188, 66); color: white"
+      >
+        Devise
+      </th>
+      <td mat-cell *matCellDef="let compte">{{ compte.devise }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="compteEnum">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        style="background-color: rgb(66, 188, 66); color: white"
+      >
+        Type de Compte
+      </th>
+      <td mat-cell *matCellDef="let compte">{{ compte.compteEnum }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        style="background-color: rgb(66, 188, 66); color: white"
+      >
+        Actions
+      </th>
+      <td mat-cell *matCellDef="let compte">
+        <!-- <button mat-button color="warn" (click)="deleteCompte(compte.id)">
+          Delete
+        </button>
+        <button mat-button (click)="openDialog(compte)">Edit</button> -->
+        <button mat-button (click)="detailsCompte(compte)">Détails</button>
+      </td>
+    </ng-container>
+
+    <tr
+      mat-header-row
+      *matHeaderRowDef="[
+        'numeroCompte',
+        'solde',
+        'devise',
+        'compteEnum',
+        'actions'
+      ]"
+    ></tr>
+    <tr
+      mat-row
+      *matRowDef="
+        let row;
+        columns: ['numeroCompte', 'solde', 'devise', 'compteEnum', 'actions']
+      "
+    ></tr>
+  </table>
+</div>
