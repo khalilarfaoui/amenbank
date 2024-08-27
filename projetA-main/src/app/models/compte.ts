@@ -7,4 +7,5 @@ export interface Compte {
   compteEnum: 'Principal' | 'Epargne' | 'Courant' | 'Crédit';
   devise: string;
   mouvements: Mouvement[];
+  userId : any
 }

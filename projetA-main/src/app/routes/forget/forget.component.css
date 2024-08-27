@@ -1,0 +1,41 @@
+.change-password-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.change-password-card {
+  width: 400px;
+  padding: 20px;
+}
+
+.change-password-title {
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.alert {
+  padding: 15px;
+  margin-top: 20px;
+  text-align: center;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+.success-message {
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+}
+
+.error-message {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+}

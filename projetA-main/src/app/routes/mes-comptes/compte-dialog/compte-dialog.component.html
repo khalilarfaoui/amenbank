@@ -19,6 +19,12 @@
       <mat-option *ngFor="let type of compteTypes" [value]="type">{{ type }}</mat-option>
     </mat-select>
   </mat-form-field>
+  <mat-form-field style="width: 100%;" appearance="fill">
+    <mat-label>Utilisateur</mat-label>
+    <mat-select [(ngModel)]="compte.userId" required>
+      <mat-option *ngFor="let u of user" [value]="u.id">{{ u.firstname }} {{ u.lastname }}</mat-option>
+    </mat-select>
+  </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button (click)="onCancel()">Cancel</button>

@@ -9,12 +9,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { CompteDialogComponent } from './compte-dialog/compte-dialog.component';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { CompteDialogComponent } from '../mes-comptes/compte-dialog/compte-dialog.component';
 
 @Component({
-  selector: 'app-mes-comptes',
+  selector: 'app-admin-comptes',
   standalone: true,
   imports: [
     MatCardModule,
@@ -25,53 +25,40 @@ import { Router } from '@angular/router';
     MatButtonModule,
     ReactiveFormsModule,
     MatDialogModule,
-    MatSelectModule
-
+    MatSelectModule,
   ],
-  templateUrl: './mes-comptes.component.html',
-  styleUrl: './mes-comptes.component.css'
+  templateUrl: './admin-comptes.component.html',
+  styleUrl: './admin-comptes.component.css',
 })
-export class MesComptesComponent {
+export class AdminComptesComponent {
   comptes: Compte[] = [];
-  user : any
+  user: any;
   constructor(
     private compteService: CompteService,
     private dialog: MatDialog,
-    private authService : AuthService,
-    private router : Router
+    private authService: AuthService,
+    private router: Router
   ) {
     this.loadComptes();
   }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   loadComptes(): void {
-    this.authService.token$.subscribe(token=>{
-      this.authService.getUserDetails(token).subscribe(res=>{
-        this.user = res
-        if(this.user.role == "ADMIN"){
-          this.router.navigateByUrl("admin-comptes")
-        }
-        console.log(res);
+    this.compteService.getAllComptesAdmin().subscribe((data) => {
+      this.comptes = data;
+      console.log(this.comptes);
 
-
-        this.compteService.getAllComptes(this.user.id).subscribe((data) => {
-          this.comptes = data;
-        });
-      })
-    })
-
+    });
   }
 
   openDialog(compte?: Compte): void {
     const dialogRef = this.dialog.open(CompteDialogComponent, {
       width: '400px',
-      data: compte
+      data: compte,
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         if (result.id) {
           this.updateCompte(result);
@@ -82,12 +69,12 @@ export class MesComptesComponent {
     });
   }
 
-  detailsCompte(data:any){
-    this.router.navigateByUrl('mes-virements')
+  detailsCompte(data: any) {
+    this.router.navigateByUrl('mes-virements');
   }
 
   createCompte(compte: Compte): void {
-    this.compteService.createCompte(compte , this.user.id).subscribe(() => {
+    this.compteService.createCompte(compte , compte.userId).subscribe(() => {
       this.loadComptes();
     });
   }

@@ -1,7 +1,14 @@
 <div class="container" style="padding: 50px">
   <div style="display: flex; justify-content: space-between">
     <h2>Comptes List</h2>
-
+    <button
+      mat-raised-button
+      color="primary"
+      style="background-color: rgb(66, 188, 66); color: white"
+      (click)="openDialog()"
+    >
+      Create Compte
+    </button>
   </div>
 
   <table mat-table [dataSource]="comptes" class="mat-elevation-z8">
@@ -14,6 +21,16 @@
         Numéro Compte
       </th>
       <td mat-cell *matCellDef="let compte">{{ compte.numeroCompte }}</td>
+    </ng-container>
+    <ng-container matColumnDef="user">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        style="background-color: rgb(66, 188, 66); color: white"
+      >
+        Numéro Compte
+      </th>
+      <td mat-cell *matCellDef="let compte">{{ compte.user.firstname }} {{ compte.user.lastname }}</td>
     </ng-container>
 
     <ng-container matColumnDef="solde">
@@ -61,11 +78,11 @@
         Actions
       </th>
       <td mat-cell *matCellDef="let compte">
-        <!-- <button mat-button color="warn" (click)="deleteCompte(compte.id)">
+        <button mat-button color="warn" (click)="deleteCompte(compte.id)">
           Delete
         </button>
-        <button mat-button (click)="openDialog(compte)">Edit</button> -->
-        <button mat-button (click)="detailsCompte(compte)">Détails</button>
+        <button mat-button (click)="openDialog(compte)">Edit</button>
+
       </td>
     </ng-container>
 
@@ -73,6 +90,7 @@
       mat-header-row
       *matHeaderRowDef="[
         'numeroCompte',
+        'user',
         'solde',
         'devise',
         'compteEnum',
@@ -83,7 +101,7 @@
       mat-row
       *matRowDef="
         let row;
-        columns: ['numeroCompte', 'solde', 'devise', 'compteEnum', 'actions']
+        columns: ['numeroCompte', 'user','solde', 'devise', 'compteEnum', 'actions']
       "
     ></tr>
   </table>

@@ -24,6 +24,11 @@ public class CompteController {
         return compteRepository.findByUserId(id);
     }
 
+    @GetMapping()
+    public List<Compte> getAllComptesAdmin() {
+        return compteRepository.findAll();
+    }
+
     // Get a compte by ID
     @GetMapping("/compteId/{id}")
     public ResponseEntity<Compte> getCompteById(@PathVariable Long id) {

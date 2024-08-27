@@ -17,20 +17,24 @@ export class NavbarComponent implements OnInit {
   isConnect: boolean = false;
   user: any;
   constructor(private authService: AuthService, private router: Router) {
+    this.authService.token$.subscribe(token=>{
+      this.authService.getUserDetails(token).subscribe((res) => {
+        console.log(res);
+        if (res) {
+          this.user = res
+          this.isConnect = true;
+          this.authService.setBooleanValue(true);
+        }
+      });
+    })
+
     this.authService.boolean$.subscribe((res) => {
       console.log(res);
       this.isConnect = res;
     });
   }
   ngOnInit(): void {
-    this.authService.getUserDetails().subscribe((res) => {
-      console.log(res);
-      if (res) {
-        this.user = res
-        this.isConnect = true;
-        this.authService.setBooleanValue(true);
-      }
-    });
+
   }
 
   logout() {

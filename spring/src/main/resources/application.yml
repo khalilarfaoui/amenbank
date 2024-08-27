@@ -13,6 +13,20 @@ spring:
         format_sql: true
     database: mysql
     database-platform: org.hibernate.dialect.MySQLDialect
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: hrportal2023@gmail.com
+    password: xvlheofbnezururu
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          connectiontimeout: 100000000
+          timeout: 100000000
+          writetimeout: 100000000
 
 application:
   security:
@@ -21,3 +35,5 @@ application:
       expiration: 86400000 # a day
       refresh-token:
         expiration: 604800000 # 7 days
+
+

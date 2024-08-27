@@ -55,6 +55,7 @@ export class LoginComponent {
           this.authResponse = response;
           if (!this.authResponse.mfaEnabled) {
             localStorage.setItem('token', response.accessToken as string);
+            this.authService.setTokenValue(response.accessToken as string);
             this.authService.setBooleanValue(true)
             this.router.navigateByUrl('/comptes');
           }
@@ -76,6 +77,7 @@ export class LoginComponent {
         next: (response) => {
           localStorage.setItem('token', response.accessToken as string);
           this.authService.setBooleanValue(true)
+          this.authService.setTokenValue(response.accessToken as string);
           this.router.navigateByUrl('/comptes');
         },
         error: (error) => {

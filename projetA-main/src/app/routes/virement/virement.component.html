@@ -1,6 +1,6 @@
-<div class="transfer-form">
+<div class="transfer-form" style="margin-top: 30px;">
   <h3>Virement compte à compte</h3>
-  <form [formGroup]="virementForm" (ngSubmit)="onSubmitTransfer()">
+  <form [formGroup]="virementForm"  (ngSubmit)="onSubmitTransfer()">
     <div class="form-group">
       <label for="compteSourceId">Compte à débiter:</label>
       <select formControlName="compteSourceId" id="compteSourceId">

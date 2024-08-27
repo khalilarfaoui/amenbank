@@ -14,10 +14,29 @@ export const routes: Routes = [
       import('./routes/mes-comptes/mes-comptes.component').then((mod) => mod.MesComptesComponent),
   },
   {
+    path: 'admin-comptes',
+    loadComponent: () =>
+      import('./routes/admin-comptes/admin-comptes.component').then((mod) => mod.AdminComptesComponent),
+  },
+  {
     path: 'login',
     loadComponent: () =>
       import('./routes/login/login.component').then(
         (mod) => mod.LoginComponent
+      ),
+  },
+  {
+    path: 'forget',
+    loadComponent: () =>
+      import('./routes/forget-password/forget-password.component').then(
+        (mod) => mod.ForgetPasswordComponent
+      ),
+  },
+  {
+    path: 'resetpwd',
+    loadComponent: () =>
+      import('./routes/forget/forget.component').then(
+        (mod) => mod.ForgetComponent
       ),
   },
   {

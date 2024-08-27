@@ -5,12 +5,15 @@ import com.bank.security.user.User;
 import com.bank.security.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
 public class InitialDataLoader implements CommandLineRunner {
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    PasswordEncoder passwordEncoder;
     @Override
     public void run(String... args) throws Exception {
         if (userRepository.findByEmail("admin@gmail.com").isPresent()) {
@@ -18,7 +21,7 @@ public class InitialDataLoader implements CommandLineRunner {
         } else {
             User user = new User();
 
-            user.setPassword("1é3456");
+            user.setPassword(passwordEncoder.encode("123456"));
 
             user.setFirstname("Administrateur");
             user.setLastname("Global");

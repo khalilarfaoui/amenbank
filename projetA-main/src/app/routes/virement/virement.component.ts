@@ -42,15 +42,18 @@ export class VirementComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authService.getUserDetails().subscribe(res=>{
-      this.user = res
-      console.log(res);
+    this.authService.token$.subscribe(token=>{
+      this.authService.getUserDetails(token).subscribe(res=>{
+        this.user = res
+        console.log(res);
 
 
-      this.compteService.getAllComptes(this.user.id).subscribe((data) => {
-        this.comptes = data;
-      });
+        this.compteService.getAllComptes(this.user.id).subscribe((data) => {
+          this.comptes = data;
+        });
+      })
     })
+
   }
 
   calculateTotalBalance(): number {

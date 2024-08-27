@@ -1,3 +1,4 @@
+import { UserService } from './../../../services/user.service';
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { Compte } from '../../../models/compte';
@@ -29,14 +30,18 @@ import { CommonModule } from '@angular/common';
   styleUrl: './compte-dialog.component.css'
 })
 export class CompteDialogComponent {
-  compte: Compte = { id: 0, numeroCompte: '',compteEnum : 'Courant' , devise : '', solde: 0, mouvements: [] };
+  compte: Compte = { id: 0, numeroCompte: '',compteEnum : 'Courant' , devise : '', solde: 0, mouvements: [] , userId : ""};
   compteTypes: string[] = ['Principal', 'Epargne', 'Courant', 'Crédit'];
   constructor(
     public dialogRef: MatDialogRef<CompteDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Compte
+    @Inject(MAT_DIALOG_DATA) public data: Compte,
+    private UserService : UserService
   ) {}
-
+user : any
   ngOnInit(): void {
+    this.UserService.getAllUsers().subscribe(res=>{
+      this.user = res
+    })
     if (this.data) {
       this.compte = { ...this.data };
     }

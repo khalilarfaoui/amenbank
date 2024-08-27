@@ -16,6 +16,9 @@ export class CompteService {
   getAllComptes(id :any): Observable<Compte[]> {
     return this.http.get<Compte[]>(`${this.baseUrl}/${id}`);
   }
+  getAllComptesAdmin(): Observable<Compte[]> {
+    return this.http.get<Compte[]>(`${this.baseUrl}`);
+  }
 
   // Get a compte by ID
   getCompteById(id: number): Observable<Compte> {
