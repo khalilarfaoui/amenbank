@@ -1,11 +1,12 @@
+import { AuthService } from './../../services/auth.service';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-forget',
@@ -17,30 +18,48 @@ import { RouterModule } from '@angular/router';
     MatButtonModule,
     RouterModule,
     FormsModule,
-    CommonModule
+    CommonModule,
   ],
   templateUrl: './forget.component.html',
-  styleUrl: './forget.component.css'
+  styleUrl: './forget.component.css',
 })
-
-export class ForgetComponent {
+export class ForgetComponent implements OnInit {
+  conpassword: any;
+  password: any;
+  token: any;
   passwordChange = {
-
     newPassword: '',
-    confirmPassword: ''
+    confirmPassword: '',
   };
-  message: string | null = null;
+
   messageType: 'success' | 'error' | null = null;
+  message: any;
+  constructor(
+    private route: ActivatedRoute,
+    private authService: AuthService,
+    private router: Router
+  ) {}
+  ngOnInit(): void {
+    this.route.queryParams.subscribe((params) => {
+      this.token = params['token'];
+      console.log(this.token);
+      this.authService.verifyTokenResetPass(this.token).subscribe((res) => {
+        console.log(res);
+        this.message = res;
+      });
+    });
+  }
+  error: any;
 
-  constructor() {}
-
-  onChangePassword(): void {
-    if (this.passwordChange.newPassword !== this.passwordChange.confirmPassword) {
-      this.messageType = 'error';
-      this.message = 'Les nouveaux mots de passe ne correspondent pas.';
-      return;
+  send() {
+    if (this.password != this.conpassword) {
+      this.error = 'Merci de confirmer le mot de passe';
+    } else {
+      this.authService
+        .resetForgtenPass(this.token, this.password)
+        .subscribe((res) => {
+          this.router.navigateByUrl('login');
+        });
     }
-
-
   }
 }

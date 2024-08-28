@@ -63,7 +63,7 @@ export class VirementComponent implements OnInit {
   onSubmitTransfer(): void {
     this.virementService.createVirement(this.virementForm.value).subscribe(res=>{
       console.log(res);
-
+      location.reload()
     })
   }
 }

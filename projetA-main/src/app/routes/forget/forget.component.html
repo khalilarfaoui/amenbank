@@ -1,16 +1,16 @@
-<div class="change-password-container">
+<div class="change-password-container" *ngIf="message?.message == '&'">
   <mat-card class="change-password-card">
     <mat-card-title class="change-password-title">Changer le mot de passe</mat-card-title>
     <mat-card-content>
-      <form (ngSubmit)="onChangePassword()">
+      <form (ngSubmit)="send()">
 
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Nouveau mot de passe</mat-label>
-          <input matInput placeholder="Entrez votre nouveau mot de passe" [(ngModel)]="passwordChange.newPassword" name="newPassword" type="password" required>
+          <input matInput placeholder="Entrez votre nouveau mot de passe" [(ngModel)]="password" name="newPassword" type="password" required>
         </mat-form-field>
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Confirmer le nouveau mot de passe</mat-label>
-          <input matInput placeholder="Confirmez votre nouveau mot de passe" [(ngModel)]="passwordChange.confirmPassword" name="confirmPassword" type="password" required>
+          <input matInput placeholder="Confirmez votre nouveau mot de passe" [(ngModel)]="conpassword" name="confirmPassword" type="password" required>
         </mat-form-field>
         <button mat-raised-button color="primary" class="full-width" type="submit" style="background-color: #4CAF50;">
           Changer le mot de passe
@@ -21,4 +21,10 @@
       </div>
     </mat-card-content>
   </mat-card>
+</div>
+<div
+    *ngIf="message?.message != '&'"
+    style="display: flex; justify-content: center ;"
+>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPUvFfPPOkbPc_TFDcRBsSysBhmgZWhLGtPw&s" alt="" />
 </div>
